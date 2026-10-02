@@ -1,4 +1,3 @@
-\
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
@@ -28,7 +27,7 @@ fi
 
 echo "======================================="
 echo " VerifAI Data Service"
-echo " PostgreSQL 16 + PostgREST 16.4"
+echo " PostgreSQL 16 + PostgREST 16.3"
 echo " Database: $DB_NAME"
 echo " PGDATA:   $PGDATA"
 echo "======================================="
