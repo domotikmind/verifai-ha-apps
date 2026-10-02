@@ -1,0 +1,31 @@
+name: "VerifAI Data Service"
+version: "1.0.0"
+slug: "verifai_data"
+description: "PostgreSQL 16 + PostgREST para VerifAI"
+url: "https://github.com/domotikmind/verifai-ha-apps"
+arch:
+  - aarch64
+  - amd64
+init: false
+startup: system
+boot: auto
+backup: cold
+stage: experimental
+
+map:
+  - type: share
+    read_only: false
+
+options:
+  database: "verifai"
+  username: "verifai_admin"
+  password: null
+  timezone: "Europe/Madrid"
+  restore_dump: "verifai_full.dump"
+
+schema:
+  database: str
+  username: str
+  password: password
+  timezone: str
+  restore_dump: str
