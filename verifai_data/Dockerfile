@@ -1,4 +1,4 @@
-FROM postgrest/postgrest:v16.4 AS postgrest
+FROM postgrest/postgrest:v16.3 AS postgrest
 
 FROM postgres:16.15-bookworm
 
