@@ -11,13 +11,25 @@ LABEL \
   io.hass.arch="${BUILD_ARCH}"
 
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends jq tzdata ca-certificates \
-    && rm -rf /var/lib/apt/lists/*
+    && apt-get install -y --no-install-recommends \
+       jq \
+       tzdata \
+       ca-certificates \
+       nginx \
+       php-cli \
+       php-pgsql \
+       adminer \
+    && rm -rf /var/lib/apt/lists/* \
+    && rm -f /etc/nginx/sites-enabled/default \
+    && mkdir -p /var/www/adminer \
+    && ln -sf /usr/share/adminer/adminer.php /var/www/adminer/index.php
 
 COPY --from=postgrest /bin/postgrest /usr/local/bin/postgrest
+
 COPY run.sh /run.sh
 COPY bootstrap.sql /opt/verifai/bootstrap.sql
 COPY migrate_v2.sql /opt/verifai/migrate_v2.sql
+COPY nginx-adminer.conf /etc/nginx/conf.d/verifai-adminer.conf
 
 RUN chmod a+x /run.sh
 
