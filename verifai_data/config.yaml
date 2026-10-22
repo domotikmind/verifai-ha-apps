@@ -1,5 +1,5 @@
 name: "VerifAI Data Service"
-version: "1.1.0"
+version: "1.1.1"
 slug: "verifai_data"
 description: "PostgreSQL 16 + PostgREST + Adminer para VerifAI"
 url: "https://github.com/domotikmind/verifai-ha-apps"
